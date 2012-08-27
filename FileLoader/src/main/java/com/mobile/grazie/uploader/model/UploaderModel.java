@@ -1,4 +1,4 @@
-package com.mobile.grazie.uploader.model;
+package main.java.com.mobile.grazie.uploader.model;
 
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 

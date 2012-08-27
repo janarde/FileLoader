@@ -1,4 +1,4 @@
-package com.mobile.grazie.uploader.controller;
+package main.java.com.mobile.grazie.uploader.controller;
 
 import java.util.Map;
 import org.springframework.stereotype.Controller;

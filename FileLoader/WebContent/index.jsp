@@ -11,7 +11,7 @@
 	<body>
 		<h1> File Uploader </h1>
 		<ul>
-			<li><a href="forms/uploadfileindex.html">File Upload</a></li>
+			<li><a href="forms/uploadfileindex.html">File Uploader</a></li>
 		</ul>
 	</body>
 

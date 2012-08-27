@@ -1,4 +1,6 @@
-package com.mobile.grazie.uploader.controller;
+package main.java.com.mobile.grazie.uploader.controller;
+
+import main.java.com.mobile.grazie.uploader.model.UploaderModel;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
-import com.mobile.grazie.uploader.model.UploaderModel;
 
 @Controller
 @RequestMapping(value = "/upload")
