@@ -71,6 +71,7 @@
 		<maven.war.plugin.version>2.1.1</maven.war.plugin.version>
 		<maven.antrun.plugin.version>1.7</maven.antrun.plugin.version>
 		<maven.apt.plugin.version>1.0</maven.apt.plugin.version>
+		<maven.dependency.plugin.version>2.4</maven.dependency.plugin.version>
 
 	</properties>
 
@@ -146,10 +147,27 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-dependency-plugin</artifactId>
+					<version>${maven.dependency.plugin.version}</version>
+					<!-- 
+					<executions>
+						<execution>
+							<phase>process-resources</phase>
+							<goals>
+								<goal>copy-dependencies</goal>
+							</goals>
+						</execution>
+					</executions>
+					 -->
+					<configuration>
+						<outputDirectory>${project.basedir}/src/main/webapp/WEB-INF/lib</outputDirectory>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-war-plugin</artifactId>
 					<version>${maven.war.plugin.version}</version>
 					<configuration>
-						<webXml>WebContent\WEB-INF\web.xml</webXml>
 						<archive>
 							<manifest>
 								<addClasspath>true</addClasspath>
@@ -157,42 +175,20 @@
 						</archive>
 					</configuration>
 				</plugin>
-
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-antrun-plugin</artifactId>
-					<version>${maven.antrun.plugin.version}</version>
-					<executions>
-						<execution>
-							<id>compile</id>
-							<phase>compile</phase>
-							<configuration>
-								<target>
-									<property name="compile_classpath" refid="maven.compile.classpath" />
-									<property name="runtime_classpath" refid="maven.runtime.classpath" />
-									<property name="test_classpath" refid="maven.test.classpath" />
-									<property name="plugin_classpath" refid="maven.plugin.classpath" />
-
-									<echo message="compile classpath: ${compile_classpath}" />
-									<echo message="runtime classpath: ${runtime_classpath}" />
-									<echo message="test classpath:    ${test_classpath}" />
-									<echo message="plugin classpath:  ${plugin_classpath}" />
-								</target>
-								<target name="build" description="Compile main source tree java files">
-									<mkdir dir="${build.dir}" />
-									<javac destdir="${build.dir}" source="1.6" target="1.6"
-										debug="true" deprecation="false" optimize="false" failonerror="true">
-										<src path="${src.dir}" />
-										<classpath refid="dependency.classpath" />
-									</javac>
-								</target>
-							</configuration>
-							<goals>
-								<goal>run</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
+				<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-antrun-plugin</artifactId> 
+					<version>${maven.antrun.plugin.version}</version> <executions> <execution> 
+					<id>compile</id> <phase>compile</phase> <configuration> <target> <property 
+					name="compile_classpath" refid="maven.compile.classpath" /> <property name="runtime_classpath" 
+					refid="maven.runtime.classpath" /> <property name="test_classpath" refid="maven.test.classpath" 
+					/> <property name="plugin_classpath" refid="maven.plugin.classpath" /> <echo 
+					message="compile classpath: ${compile_classpath}" /> <echo message="runtime 
+					classpath: ${runtime_classpath}" /> <echo message="test classpath: ${test_classpath}" 
+					/> <echo message="plugin classpath: ${plugin_classpath}" /> </target> <target 
+					name="build" description="Compile main source tree java files"> <mkdir dir="${build.dir}" 
+					/> <javac destdir="${build.dir}" source="1.6" target="1.6" debug="true" deprecation="false" 
+					optimize="false" failonerror="true"> <src path="${src.dir}" /> <classpath 
+					refid="dependency.classpath" /> </javac> </target> </configuration> <goals> 
+					<goal>run</goal> </goals> </execution> </executions> </plugin> -->
 			</plugins>
 		</pluginManagement>
 	</build>
