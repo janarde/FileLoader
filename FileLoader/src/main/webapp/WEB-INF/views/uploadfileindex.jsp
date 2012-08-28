@@ -12,7 +12,7 @@
 	<body>
 
 		<h2>
-			<a href="uploadfile.jsp">Upload Example</a>
+			<a href="uploadFile.jsp">Upload Example</a>
 		</h2>
 		<br>
 		<br>

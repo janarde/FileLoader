@@ -1,6 +1,6 @@
-package main.java.com.mobile.grazie.uploader.controller;
+package com.mobile.grazie.uploader.controller;
 
-import main.java.com.mobile.grazie.uploader.model.UploaderModel;
+import com.mobile.grazie.uploader.model.UploaderModel;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class UploadController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String getUploadForm(Model model) {
 		model.addAttribute(new UploaderModel());
-		return "upload/uploadForm";
+		return "upload/uploadFile";
 	}
 	
 	@RequestMapping(method = RequestMethod.POST)
@@ -26,7 +26,7 @@ public class UploadController {
 			for (ObjectError error : result.getAllErrors()) {
 				System.err.println("Error = " + error.getCode() + " - " + error.getDefaultMessage());
 			}
-			return "upload/uploadForm";
+			return "upload/uploadFile";
 		}
 		
 	    // Some type of file processing...

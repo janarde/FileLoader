@@ -1,4 +1,4 @@
-package main.java.com.mobile.grazie.uploader.controller;
+package com.mobile.grazie.uploader.controller;
 
 import java.util.Map;
 import org.springframework.stereotype.Controller;
@@ -13,13 +13,13 @@ public class UploadIndexController {
 	// display on get request
 	@RequestMapping(method = RequestMethod.GET)
 	public String showRegistration(Map<String, String> model) {
-		return "uploadForm";
+		return "uploadFile";
 	}
 	
 	//process the form
 	@RequestMapping(method = RequestMethod.POST)
 	public String processRegistration(BindingResult result) {
-		return "uploadForm";
+		return "uploadFile";
 	}
 	
 }
