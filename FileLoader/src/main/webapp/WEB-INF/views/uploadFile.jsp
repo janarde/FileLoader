@@ -1,7 +1,8 @@
 <%@page contentType="text/html; charset=UTF-8"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page session="false"%>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 <html>
 <head>
@@ -24,7 +25,7 @@
 </script>
 </head>
 <body>
-	<form modelAttribute="uploaderModel" name="frm" method="post"enctype="multipart/form-data" onSubmit="return Validate();">
+	<form:form commandName="uploadItem" name="frm" method="post" enctype="multipart/form-data" onSubmit="return Validate();">
 		<fieldset>
 			<legend>Upload File</legend>
 			<table>
@@ -39,7 +40,7 @@
 				</tr>
 			</table>
 		</fieldset>
-	</form>
+	</form:form>
 
 </body>
 </body>

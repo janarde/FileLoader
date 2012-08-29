@@ -8,18 +8,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 @RequestMapping("/uploadfileindex")
-public class UploadIndexController {
+public class UploadFileIndexController {
 
 	// display on get request
 	@RequestMapping(method = RequestMethod.GET)
 	public String showRegistration(Map<String, String> model) {
-		return "uploadFile";
+		System.out.println("Got Here");
+		return "uploadfileindex";
 	}
 	
 	//process the form
 	@RequestMapping(method = RequestMethod.POST)
 	public String processRegistration(BindingResult result) {
-		return "uploadFile";
+		return "uploadfileindex";
 	}
 	
 }

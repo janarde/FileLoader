@@ -27,7 +27,7 @@
 
 		<br>
 
-		<img src="<%=request.getRealPath("/") + "/images/" + session.getAttribute("uploadFile")%>" alt="Upload Image" />
+		<img src="<%=request.getSession().getServletContext().getRealPath("/") + "/images/" + session.getAttribute("uploadFile")%>" alt="Upload Image" />
 
 		<%
 			session.removeAttribute("uploadFile");
